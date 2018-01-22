@@ -13,5 +13,5 @@ test('[,arrow,functions] becomes "af"', function(){
 });
 
 test('[undefined,arrow,functions] becomes "uaf"', function(){
-  expect(out(['uello', 'arrow', 'functions'])).toBe('[uello,arrow,functions] becomes "uaf"');
+  expect(out(['undefined', 'arrow', 'functions'])).toBe('[undefined,arrow,functions] becomes "uaf"');
 });
