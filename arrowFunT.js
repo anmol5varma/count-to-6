@@ -1,8 +1,8 @@
-let foot = {
-  kick: function () {
+const foot = {
+  kick() {
     this.yelp = 'Ouch!';
-    setImmediate( () => console.log(this.yelp));
-  }
+    setImmediate(() => console.log(this.yelp));
+  },
 };
 foot.kick();
-module.exports = foot; 
+module.exports = foot;

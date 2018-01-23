@@ -1,16 +1,20 @@
-// console.log(html`<b>${process.argv[2]} says</b>: "${process.argv[3]}"`);
-
-function html(arr, ...args) {
-  let res = '';
-  args.forEach((value) => {
-    res = `${res} ${value}`;
-  });
-  console.log(res);
-  // let in = arguments[0].slice(0);
-
-  // let safeString inputs.replaceAll('&' , '&amp;')
-  // .replaceAll('<' , '&lt;').replaceAll('>' , '&gt;')
-  // .replaceAll('"' , '&quot;').replaceAll('\'' , '&apos;');
+function nowSafe(word) {
+  // console.log(typeof word);
+  // console.log(word);
+  const res = word.replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+  return res;
 }
 
-html(['<b>', ' says</b>: "', '"']);
+function html(arr, username, comment) {
+  const safeString = arr[0] + nowSafe(username) + arr[1] + nowSafe(comment) + arr[2];
+  // console.log(safeString);
+  return safeString;
+}
+console.log(html`<b>${process.argv[2]} says</b>: "${process.argv[3]}"`);
+
+module.exports = { html, nowSafe };
+// html(['<b>', ' says</b>: "', '"']);
